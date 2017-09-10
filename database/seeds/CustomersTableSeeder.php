@@ -1,8 +1,10 @@
 <?php
 
+use Charlie\Customer;
 use Illuminate\Database\Seeder;
 
-class DatabaseSeeder extends Seeder
+
+class CustomersTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,7 +13,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call(UsersTableSeeder::class);
-        $this->call(CustomersTableSeeder::class);
+        Customer::truncate();
+        factory(Customer::class, 50)->create();
     }
 }
